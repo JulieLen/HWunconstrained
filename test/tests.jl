@@ -1,15 +1,13 @@
 
-
-
 @testset "basics" begin
 
 	@testset "Test Data Construction" begin
-		@test 1==2
-
+		@test typeof(HWunconstrained.makeData()[:y]) == Array{Int64,1}
 	end
 
 	@testset "Test Return value of likelihood" begin
 
+		@test HWunconstrained.loglik([0;0;0], HWunconstrained.makeData()) ≈ 10000*log(0.5)
 
 	end
 
@@ -48,4 +46,3 @@ end
 	end
 
 end
-
